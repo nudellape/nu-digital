@@ -2,9 +2,9 @@ import AppCard from "../components/AppCard";
 
 // ======= EDITE AQUI SEUS CONTATOS =======
 const contatos = {
-  email: "seuemail@exemplo.com",
-  linkedin: "https://www.linkedin.com/in/seu-perfil",
-  github: "https://github.com/emanuellanu",
+  email: "nudellapexavier@gmail.com",
+  linkedin: "https://www.linkedin.com/in/nudellape",
+  github: "https://github.com/nudellape",
 };
 // ========================================
 
