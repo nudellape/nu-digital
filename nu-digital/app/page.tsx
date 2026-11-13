@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AppCard from "../components/AppCard";
 
 // ======= EDITE AQUI SEUS CONTATOS =======
@@ -9,11 +10,12 @@ const contatos = {
 // ========================================
 
 const apps = [
-  {
+  {  
     name: "Nu Campus",
     description: "Organize disciplinas, provas e notas.",
     icon: "◈",
     color: "#F0D7D8",
+    href: "/campus",
   },
   {
     name: "Nu Career",
@@ -27,11 +29,12 @@ const apps = [
     icon: "⌂",
     color: "#F8E4AD",
   },
-  {
+    {
     name: "Nu Agro",
     description: "Explore ferramentas para o universo agrícola.",
     icon: "✿",
     color: "#DFE6D3",
+    href: "/agro",
   },
 ];
 
@@ -131,9 +134,16 @@ export default function Home() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {apps.map((app) => (
-            <AppCard key={app.name} {...app} />
-          ))}
+                    {apps.map(({ href, ...app }) =>
+            href ? (
+              <Link key={app.name} href={href} className="block transition hover:-translate-y-1">
+                <AppCard {...app} />
+              </Link>
+            ) : (
+              <AppCard key={app.name} {...app} />
+            )
+          )}
+
         </div>
       </section>
 

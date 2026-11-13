@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-fundo: #0a0f1c;
+  --color-cartao: #111a2e;
+  --color-cartao-2: #16213a;
+  --color-linha: #1e2a44;
+  --color-texto: #f1f5f9;
+  --color-suave: #94a3b8;
+  --color-apagado: #64748b;
+  --color-azul: #3b82f6;
+  --color-azul-claro: #60a5fa;
+  --color-milho: #fbbf24;
+  --color-soja: #34d399;
+  --color-agua: #38bdf8;
+  --color-alerta: #f87171;
+  --color-alerta-fundo: #3b1219;
+  --color-alerta-borda: #7f1d1d;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-fundo);
+  color: var(--color-texto);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes subir {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.subir {
+  animation: subir 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes pulsar {
+  0% { box-shadow: 0 0 0 0 rgb(59 130 246 / 0.55); }
+  100% { box-shadow: 0 0 0 10px rgb(59 130 246 / 0); }
+}
+.pulsar {
+  animation: pulsar 1.8s ease-out infinite;
 }
